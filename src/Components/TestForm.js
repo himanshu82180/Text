@@ -52,7 +52,7 @@ export default function TestForm(props) {
     </div>
     <div className="container" style={{backgroundColor:props.mode==='dark'?'#23224c':'white',color:props.mode==='dark'?'white':'black'}}>
     <h2>Your text summary</h2>
-    <p>{text.split(" ").filter((ele)=>{return ele.length!==0}).length} words and {text.length} Character</p>
+    <p>{text.split(/\s+/).filter((ele)=>{return ele.length!==0}).length} words and {text.length} Character</p>
     <p>{0.008*text.split(" ").filter((ele)=>{return ele.length!==0}).length} minutes to read</p>
     <h2>Preview</h2>
     <p>{text}</p>

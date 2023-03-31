@@ -33,6 +33,7 @@ function App() {
     document.body.classList.add('bg-'+cls);
     }
     else{
+      removeClass();
     if(mode==='light'){
       setMode('dark');
       showAlert("Dark mode enabled successfully",'success');
