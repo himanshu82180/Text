@@ -32,6 +32,7 @@ export default function TestForm(props) {
         props.showAlert("Removed extra space successfully","success");
     }
     const [text,setText]=useState('');
+
     //setText("you have new value");
     //const [count,setCount]=useState(0);
   return (
@@ -43,16 +44,16 @@ export default function TestForm(props) {
     <div className="mb-3">
     <textarea className="form-control "  id="exampleFormControlTextarea1" onChange={onchangeHandle} style={{backgroundColor:props.mode==='dark'?'grey':'white',color:props.mode==='dark'?'white':'black'}} value={text} rows="8"></textarea>
     </div>
-    <button className="btn btn-primary mx-1 my-1" onClick={clickHandle} >ClickToUpperCase</button>
-    <button className="btn btn-primary mx-1 my-1" onClick={clickHandleLower} >ClickToLowerCase</button>
-    <button className="btn btn-primary mx-1 my-1" onClick={clickHandleClear} >Clear Text</button>
-    <button className="btn btn-primary mx-1 my-1" onClick={clickHandleCopy} >Copy Text</button>
-    <button className="btn btn-primary mx-1 my-1" onClick={clickRemovespace} >Remove extra space</button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={clickHandle} >ClickToUpperCase</button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={clickHandleLower} >ClickToLowerCase</button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={clickHandleClear} >Clear Text</button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={clickHandleCopy} >Copy Text</button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={clickRemovespace} >Remove extra space</button>
     </div>
     <div className="container" style={{backgroundColor:props.mode==='dark'?'#23224c':'white',color:props.mode==='dark'?'white':'black'}}>
     <h2>Your text summary</h2>
     <p>{text.split(" ").filter((ele)=>{return ele.length!==0}).length} words and {text.length} Character</p>
-    <p>{0.008*text.split(" ").length} minutes to read</p>
+    <p>{0.008*text.split(" ").filter((ele)=>{return ele.length!==0}).length} minutes to read</p>
     <h2>Preview</h2>
     <p>{text}</p>
     </div>
