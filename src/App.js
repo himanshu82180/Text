@@ -20,7 +20,19 @@ function App() {
         setAlert(null);
       }, 1500);
   }
-  const toggleMode=()=>{
+  const removeClass=()=>{
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-warning');
+  }
+  const toggleMode=(cls)=>{
+    if(cls!=="dark_light"){
+    console.log(cls);
+    removeClass();
+    document.body.classList.add('bg-'+cls);
+    }
+    else{
     if(mode==='light'){
       setMode('dark');
       showAlert("Dark mode enabled successfully",'success');
@@ -31,6 +43,7 @@ function App() {
       showAlert("Light mode enabled successfully",'success');
       document.body.style.backgroundColor='white';
     }
+  }
   }
   return (
     <>
